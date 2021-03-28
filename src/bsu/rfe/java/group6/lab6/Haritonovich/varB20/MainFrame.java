@@ -68,12 +68,14 @@ public class MainFrame extends JFrame {
         menuBar.add(speedMenu);
         Action increaseSpeed = new AbstractAction("+") {
             public void actionPerformed(ActionEvent event) {
+                field.increase();
             }
         };
         increaseMenuItem = speedMenu.add(increaseSpeed);
         increaseMenuItem.setEnabled(false);
         Action reduceSpeed = new AbstractAction("-") {
             public void actionPerformed(ActionEvent event) {
+                field.reduce();
             }
         };
         reduceMenuItem = speedMenu.add(reduceSpeed);
