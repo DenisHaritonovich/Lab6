@@ -16,6 +16,8 @@ public class MainFrame extends JFrame {
     private static final int HEIGHT = 500;
     private JMenuItem pauseMenuItem;
     private JMenuItem resumeMenuItem;
+    private JMenuItem increaseMenuItem;
+    private JMenuItem reduceMenuItem;
     private Field field = new Field();
 
     public MainFrame() {
@@ -33,6 +35,8 @@ public class MainFrame extends JFrame {
                 field.addBall();
                 if (!pauseMenuItem.isEnabled() && !resumeMenuItem.isEnabled()) {
                     pauseMenuItem.setEnabled(true);
+                    increaseMenuItem.setEnabled(true);
+                    reduceMenuItem.setEnabled(true);
                 }
             }
         };
@@ -59,6 +63,21 @@ public class MainFrame extends JFrame {
         resumeMenuItem = controlMenu.add(resumeAction);
         resumeMenuItem.setEnabled(false);
         getContentPane().add(field, BorderLayout.CENTER);
+
+        JMenu speedMenu = new JMenu("Управление скоростью");
+        menuBar.add(speedMenu);
+        Action increaseSpeed = new AbstractAction("+") {
+            public void actionPerformed(ActionEvent event) {
+            }
+        };
+        increaseMenuItem = speedMenu.add(increaseSpeed);
+        increaseMenuItem.setEnabled(false);
+        Action reduceSpeed = new AbstractAction("-") {
+            public void actionPerformed(ActionEvent event) {
+            }
+        };
+        reduceMenuItem = speedMenu.add(reduceSpeed);
+        reduceMenuItem.setEnabled(false);
     }
 
     public static void main(String[] args) {
